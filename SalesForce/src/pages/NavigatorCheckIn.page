@@ -1,0 +1,18 @@
+<apex:page standardController="NavigatorCheckIn__c" extensions="NavigatorCheckInController" sidebar="false">
+<apex:form >
+    <h1>Navigator CheckIn Page</h1>
+    <apex:pageBlock >
+        <apex:pageMessages />
+        <apex:pageBlockButtons location="both">
+            <apex:commandButton action="{!cancel}" value="Cancel" />
+            <apex:commandButton action="{!saveCheckIn}" value="Check In!" />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection >
+            <apex:inputField value="{!checkIn.EnergyLevel__c}" />
+            <apex:selectList value="{!checkIn.Category__c}" multiselect="false" size="1">
+				        <apex:selectOptions value="{!categories}"/>
+			      </apex:selectList>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,28 @@
+<apex:page controller="NavigatorDashboardController" sidebar="false">
+  <apex:form >
+  <apex:pageBlock id="dashboardRefresh" title="Navigator Dashboard">
+  <apex:pageBlockSection title="Current Experience">
+    <apex:outputText value="{!currentExperience.EnergyLevel__c}" />
+    <apex:outputText value="{!currentExperience.Category__r.Name}" />
+    <apex:outputText value="{!currentExperience.Budget__c}" />
+    <apex:outputText value="{!currentExperience.Status__c}" />
+  </apex:pageBlockSection>
+  <apex:pageBlockSection title="Current Explorer">
+    <apex:outputText value="{!currentExplorer.name}" />
+    <apex:outputText value="{!currentExplorer.rating}" />
+    <apex:outputText value="{!currentExplorer.description}" />
+    <!--<apex:image url="{!URLFOR($Action.Attachment.Download,currentNavigator.photoId)}" rendered="{!currentNavigator.photoId != null}"/>-->
+
+  </apex:pageBlockSection>
+  <apex:pageBlockSection rendered="{!showInstructions}">
+    <p>Leave instructions for this explorer on where and when to meet you!</p>
+    <apex:inputTextarea value="{!instructions}" />
+    <apex:commandButton action="{!acceptExplorer}" value="Send Instructions" />
+  </apex:pageBlockSection>
+    <apex:pageBlockButtons location="bottom">
+      <apex:commandButton action="{!rejectExplorer}" value="Reject" reRender="dashboardRefresh" />
+      <apex:commandButton action="{!acceptAndShowInstructions}" value="Approve" reRender="dashboardRefresh" />
+    </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

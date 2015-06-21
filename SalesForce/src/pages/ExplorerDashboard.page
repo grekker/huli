@@ -1,0 +1,26 @@
+<apex:page controller="ExplorerDashboardController">
+
+  <h1>Explorer Dashboard</h1>
+  This is your new Page
+
+  <apex:form >
+  <apex:pageBlock id="dashboardRefresh">
+  <apex:pageBlockSection title="Current Experience">
+    <apex:outputText value="{!currentExperience.EnergyLevel__c}" />
+    <apex:outputText value="{!currentExperience.Category__r.Name}" />
+    <apex:outputText value="{!currentExperience.Status__c}" />
+  </apex:pageBlockSection>
+  <apex:pageBlockSection title="Current Navigator">
+    <apex:outputText value="{!currentNavigator.name}" />
+    <apex:outputText value="{!currentNavigator.rating}" />
+    <apex:outputText value="{!currentNavigator.description}" />
+    <!--<apex:image url="{!URLFOR($Action.Attachment.Download,currentNavigator.photoId)}" rendered="{!currentNavigator.photoId != null}"/>-->
+
+  </apex:pageBlockSection>
+    <apex:pageBlockButtons location="bottom">
+      <apex:commandButton action="{!currentNavigator.reject}" value="Reject" reRender="dashboardRefresh" />
+      <apex:commandButton action="{!currentNavigator.accept}" value="Approve" reRender="dashboardRefresh" />
+    </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

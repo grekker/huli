@@ -1,0 +1,15 @@
+{
+    "projectName": "huli",
+    "username": "chuck@nalu.com",
+    "id": "7436aac0-17b4-11e5-b84d-6f5eeece0379",
+    "namespace": "",
+    "environment": "developer",
+    "workspace": "/Users/grekker/Dropbox/work/kapuhonu/repos",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}
